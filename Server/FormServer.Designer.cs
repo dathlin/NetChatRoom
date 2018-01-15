@@ -34,6 +34,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.userButton1 = new HslCommunication.Controls.UserButton();
+            this.userButton2 = new HslCommunication.Controls.UserButton();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.userButton3 = new HslCommunication.Controls.UserButton();
             this.SuspendLayout();
             // 
             // label4
@@ -69,11 +72,11 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(237, 35);
+            this.textBox1.Location = new System.Drawing.Point(237, 63);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(485, 377);
+            this.textBox1.Size = new System.Drawing.Size(485, 349);
             this.textBox1.TabIndex = 16;
             // 
             // textBox2
@@ -97,11 +100,49 @@
             this.userButton1.UIText = "发送";
             this.userButton1.Click += new System.EventHandler(this.userButton1_Click);
             // 
+            // userButton2
+            // 
+            this.userButton2.BackColor = System.Drawing.Color.Transparent;
+            this.userButton2.CustomerInformation = "";
+            this.userButton2.EnableColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.userButton2.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.userButton2.Location = new System.Drawing.Point(382, 33);
+            this.userButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.userButton2.Name = "userButton2";
+            this.userButton2.Size = new System.Drawing.Size(130, 25);
+            this.userButton2.TabIndex = 20;
+            this.userButton2.UIText = "关闭指定客户端";
+            this.userButton2.Click += new System.EventHandler(this.userButton2_Click);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(237, 34);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(139, 23);
+            this.textBox3.TabIndex = 19;
+            // 
+            // userButton3
+            // 
+            this.userButton3.BackColor = System.Drawing.Color.Transparent;
+            this.userButton3.CustomerInformation = "";
+            this.userButton3.EnableColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.userButton3.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.userButton3.Location = new System.Drawing.Point(518, 33);
+            this.userButton3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.userButton3.Name = "userButton3";
+            this.userButton3.Size = new System.Drawing.Size(204, 25);
+            this.userButton3.TabIndex = 21;
+            this.userButton3.UIText = "关闭所有在线客户端";
+            this.userButton3.Click += new System.EventHandler(this.userButton3_Click);
+            // 
             // FormServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(726, 421);
+            this.Controls.Add(this.userButton3);
+            this.Controls.Add(this.userButton2);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.userButton1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -126,6 +167,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private HslCommunication.Controls.UserButton userButton1;
+        private HslCommunication.Controls.UserButton userButton2;
+        private System.Windows.Forms.TextBox textBox3;
+        private HslCommunication.Controls.UserButton userButton3;
     }
 }
 

@@ -45,7 +45,7 @@ namespace Server
 
         private void ComplexServer_AllClientsStatusChange(string object1)
         {
-            ShowOnlineClient();
+            
         }
 
         private void ComplexServer_AcceptString(AsyncStateOne object1, NetHandle object2, string object3)
@@ -54,6 +54,7 @@ namespace Server
             // 1 是系统消息，
             // 2 是用户发送的消息
             // 3 客户端在线信息
+            // 4 强制客户端下线
             // 当你的消息头种类很多以后，可以在一个统一的类中心进行规定
             if (object2 == 2)
             {
@@ -80,6 +81,7 @@ namespace Server
 
             // 在主界面显示信息
             ShowMsg(object1.IpAddress + " " + object1.LoginAlias + " : " + object2);
+            ShowOnlineClient( );
         }
 
         private void ComplexServer_ClientOnline(AsyncStateOne object1)
@@ -98,6 +100,7 @@ namespace Server
 
             // 在主界面显示信息
             ShowMsg(object1.IpAddress + " " + object1.LoginAlias + " : 上线");
+            ShowOnlineClient( );
         }
 
 
@@ -166,7 +169,7 @@ namespace Server
 
             lock(obj_lock)
             {
-                listBox1.DataSource = all_accounts;
+                listBox1.DataSource = all_accounts.ToArray( );
                 label4.Text = all_accounts.Count.ToString();
             }
         }
@@ -191,6 +194,21 @@ namespace Server
                 // 群发出去
                 complexServer.SendAllClients(2, JObject.FromObject(msg).ToString());
             }
+        }
+
+        private void userButton2_Click( object sender, EventArgs e )
+        {
+            // 关闭指定的客户端，指定用户名称即可
+            if (!string.IsNullOrEmpty( textBox3.Text ))
+            {
+                complexServer.SendClientByAlias( textBox3.Text, 4, "" );
+            }
+        }
+
+        private void userButton3_Click( object sender, EventArgs e )
+        {
+            // 关闭所有的在线客户端，不指定名称
+            complexServer.SendAllClients( 4, "" );
         }
     }
 

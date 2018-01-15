@@ -93,6 +93,11 @@ namespace Client
             {
                 ShowOnlineClient(data);
             }
+            else if(customer == 4)
+            {
+                // 退出系统
+                QuitSystem( );
+            }
         }
 
 
@@ -140,6 +145,18 @@ namespace Client
 
 
             listBox1.DataSource = JArray.Parse(json).ToObject<NetAccount[]>();
+        }
+
+
+        private void QuitSystem()
+        {
+            if (InvokeRequired)
+            {
+                Invoke( new Action( QuitSystem ) );
+                return;
+            }
+
+            Close( );
         }
 
 
